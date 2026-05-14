@@ -23,13 +23,12 @@
     <div class="logo-section">
       <img src="/rsc/schoolLogo.png" alt="Logo">
       <div class="logo-text">
-        <h5>LRN System</h5>
-        <span>Student Tracking</span>
+        <h5>Student LRN</h5>
+        <span>Tracking System</span>
       </div>
     </div>
 
     <div class="nav-group">
-      <p>MAIN</p>
       <a href="/dashboard">
         <i class="bi bi-grid-1x2-fill"></i>
         Dashboard
@@ -37,7 +36,6 @@
     </div>
 
     <div class="nav-group">
-      <p>DATA INTEGRATION</p>
       <a href="/lis-upload">
         <i class="bi bi-upload"></i>
         LIS Upload
@@ -64,8 +62,7 @@
       </a>
     </div>
 
-    <div class="nav-group">
-      <p>SYSTEM</p>
+    <div class="nav-group logout-group">
       <a href="/login">
         <i class="bi bi-box-arrow-right"></i>
         Logout
@@ -80,7 +77,7 @@
     <div class="topbar">
       <div>
         <h3>Student Records</h3>
-        <span>Manage and view student information using the 12-digit LRN</span>
+        <span>Manage student information using the 12-digit LRN</span>
       </div>
 
       <div class="topbar-right">
@@ -88,46 +85,13 @@
       </div>
     </div>
 
-    <!-- SUMMARY CARDS -->
-    <section class="cards-section">
-
-      <div class="dashboard-card">
-        <div>
-          <p>Total Students</p>
-          <h2>1,245</h2>
-        </div>
-      </div>
-
-      <div class="dashboard-card">
-        <div>
-          <p>Active Students</p>
-          <h2>1,209</h2>
-        </div>
-      </div>
-
-      <div class="dashboard-card">
-        <div>
-          <p>Completed</p>
-          <h2>322</h2>
-        </div>
-      </div>
-
-      <div class="dashboard-card">
-        <div>
-          <p>Archived Records</p>
-          <h2>24</h2>
-        </div>
-      </div>
-
-    </section>
-
     <!-- FILTERS -->
     <section class="panel mb-4">
 
       <div class="records-header">
         <div>
           <h5>Student List</h5>
-          <span>Search, filter, add, edit, and view student records.</span>
+          <span>Search, filter, add, edit, and archive student records.</span>
         </div>
 
         <button class="btn custom-btn">+ Add Student</button>
@@ -135,14 +99,14 @@
 
       <div class="row g-3 mt-2">
 
-        <div class="col-md-4">
+        <div class="col-md-5">
           <label class="form-label">Search Student</label>
           <input type="text" class="form-control" placeholder="Search by LRN or name">
         </div>
 
         <div class="col-md-2">
           <label class="form-label">Grade Level</label>
-          <select class="form-select">
+          <select class="form-select" id="recordsGradeFilter">
             <option selected>All Grades</option>
             <option>Grade 7</option>
             <option>Grade 8</option>
@@ -152,32 +116,19 @@
         </div>
 
         <div class="col-md-2">
-          <label class="form-label">Section</label>
-          <select class="form-select">
-            <option selected>All Sections</option>
-            <option>Einstein</option>
-            <option>Newton</option>
-            <option>Darwin</option>
+          <label class="form-label">Record View</label>
+          <select class="form-select" id="recordsViewFilter">
+            <option selected>All Records</option>
+            <option>Current Records</option>
+            <option>Archived Records</option>
           </select>
         </div>
 
-        <div class="col-md-2">
-          <label class="form-label">Status</label>
-          <select class="form-select">
-            <option selected>All Status</option>
-            <option>Active</option>
-            <option>Completed</option>
-            <option>Transferred In</option>
-            <option>Transferred Out</option>
-            <option>Repeater</option>
-            <option>Dropped</option>
-          </select>
-        </div>
-
-        <div class="col-md-2">
+        <div class="col-md-3">
           <label class="form-label">School Year</label>
-          <select class="form-select">
-            <option selected>2025-2026</option>
+          <select class="form-select" id="recordsSchoolYearFilter">
+            <option selected>All School Years</option>
+            <option>2025-2026</option>
             <option>2024-2025</option>
             <option>2023-2024</option>
           </select>
@@ -198,9 +149,7 @@
               <th>Student Name</th>
               <th>Sex</th>
               <th>Grade</th>
-              <th>Section</th>
               <th>School Year</th>
-              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -211,11 +160,8 @@
               <td>Juan Dela Cruz</td>
               <td>Male</td>
               <td>Grade 7</td>
-              <td>Einstein</td>
               <td>2025-2026</td>
-              <td><span class="badge bg-success">Active</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary">View</button>
                 <button class="btn btn-sm btn-outline-warning">Edit</button>
               </td>
             </tr>
@@ -225,11 +171,8 @@
               <td>Maria Santos</td>
               <td>Female</td>
               <td>Grade 8</td>
-              <td>Newton</td>
               <td>2025-2026</td>
-              <td><span class="badge bg-info">Transferred In</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary">View</button>
                 <button class="btn btn-sm btn-outline-warning">Edit</button>
               </td>
             </tr>
@@ -239,11 +182,8 @@
               <td>Pedro Reyes</td>
               <td>Male</td>
               <td>Grade 9</td>
-              <td>Darwin</td>
               <td>2025-2026</td>
-              <td><span class="badge bg-warning text-dark">Repeater</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary">View</button>
                 <button class="btn btn-sm btn-outline-warning">Edit</button>
               </td>
             </tr>
@@ -253,11 +193,8 @@
               <td>Ana Lopez</td>
               <td>Female</td>
               <td>Grade 10</td>
-              <td>Einstein</td>
               <td>2025-2026</td>
-              <td><span class="badge bg-primary">Completed</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary">View</button>
                 <button class="btn btn-sm btn-outline-warning">Edit</button>
               </td>
             </tr>
@@ -272,6 +209,8 @@
 
 </div>
 
-<script src="/templates/js/prototype.js"></script>
+<script src="/templates/js/sample-data.js"></script>
+<script src="/templates/js/common.js"></script>
+<script src="/templates/js/records-page.js"></script>
 </body>
 </html>

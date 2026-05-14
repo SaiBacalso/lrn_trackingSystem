@@ -23,6 +23,19 @@
   font-size: 12px;
 }
 
+.school-year-control {
+  display: flex;
+  gap: 8px;
+}
+
+.school-year-control .form-select {
+  flex: 1;
+}
+
+.school-year-control .btn {
+  white-space: nowrap;
+}
+
 .upload-box {
   border: 2px dashed #9fb6e8;
   background: #eef4ff;
@@ -55,6 +68,27 @@
 .summary-item strong {
   color: #12376f;
   font-size: 15px;
+}
+
+.validation-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  color: #6c7a96;
+  font-size: 11px;
+}
+
+.validation-pager > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.validation-pager button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
 }
 
 @media(max-width: 1000px) {

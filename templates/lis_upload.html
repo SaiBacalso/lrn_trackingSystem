@@ -23,13 +23,12 @@
     <div class="logo-section">
       <img src="/rsc/schoolLogo.png" alt="Logo">
       <div class="logo-text">
-        <h5>LRN System</h5>
-        <span>Student Tracking</span>
+        <h5>Student LRN</h5>
+        <span>Tracking System</span>
       </div>
     </div>
 
     <div class="nav-group">
-      <p>MAIN</p>
       <a href="/dashboard">
         <i class="bi bi-grid-1x2-fill"></i>
         Dashboard
@@ -38,7 +37,6 @@
 
 
     <div class="nav-group">
-      <p>DATA INTEGRATION</p>
       <a href="/lis-upload" class="active">
         <i class="bi bi-upload"></i>
         LIS Upload
@@ -65,8 +63,7 @@
       </a>
     </div>
 
-    <div class="nav-group">
-      <p>SYSTEM</p>
+    <div class="nav-group logout-group">
       <a href="/login">
         <i class="bi bi-box-arrow-right"></i>
         Logout
@@ -99,11 +96,14 @@
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label">School Year</label>
-              <select class="form-select">
-                <option selected>2025-2026</option>
-                <option>2024-2025</option>
-                <option>2023-2024</option>
-              </select>
+              <div class="school-year-control">
+                <select class="form-select" id="schoolYearSelect">
+                  <option selected>2025-2026</option>
+                  <option>2024-2025</option>
+                  <option>2023-2024</option>
+                </select>
+                <button type="button" class="btn btn-outline-primary" id="addSchoolYearBtn">+ Add</button>
+              </div>
             </div>
 
             <div class="col-md-6">
@@ -120,8 +120,8 @@
               <label class="form-label">LIS Excel File</label>
               <div class="upload-box">
                 <h6>Drop your Excel file here</h6>
-                <p>Accepted formats: .xlsx, .xls, .csv</p>
-                <input type="file" class="form-control">
+                <p>Accepted formats: .xlsx, .xls</p>
+                <input type="file" class="form-control" accept=".xlsx,.xls">
               </div>
             </div>
 
@@ -138,87 +138,50 @@
 
         <div class="summary-item">
           <span>Total Records Found</span>
-          <strong>320</strong>
+          <strong>0</strong>
         </div>
 
         <div class="summary-item">
           <span>Valid LRNs</span>
-          <strong>315</strong>
+          <strong>0</strong>
         </div>
 
         <div class="summary-item">
           <span>Duplicate LRNs</span>
-          <strong class="text-danger">3</strong>
+          <strong class="text-danger">0</strong>
         </div>
 
         <div class="summary-item">
-          <span>Missing Data</span>
-          <strong class="text-warning">2</strong>
+          <span>Missing LRNs</span>
+          <strong class="text-warning">0</strong>
         </div>
       </div>
 
     </section>
 
-    <!-- PREVIEW TABLE -->
+    <!-- VALIDATION TABLE -->
     <section class="panel mt-4">
       <div class="panel-header">
-        <h5>File Preview</h5>
-        <span class="text-muted">Review imported records before saving to the system.</span>
+        <h5>Validation Results</h5>
+        <span class="text-muted">Duplicate or missing LRN rows are shown 10 at a time. Fix the Excel file, then upload and preview again.</span>
       </div>
 
       <div class="table-responsive">
         <table class="table custom-table align-middle">
           <thead>
             <tr>
+              <th>Excel Row</th>
               <th>LRN</th>
               <th>Full Name</th>
-              <th>Sex</th>
               <th>Grade</th>
               <th>Section</th>
-              <th>Status</th>
-              <th>Validation</th>
+              <th>Issue</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td>123456789012</td>
-              <td>Juan Dela Cruz</td>
-              <td>Male</td>
-              <td>Grade 7</td>
-              <td>Einstein</td>
-              <td>Active</td>
-              <td><span class="badge bg-success">Valid</span></td>
-            </tr>
-
-            <tr>
-              <td>123456789013</td>
-              <td>Maria Santos</td>
-              <td>Female</td>
-              <td>Grade 7</td>
-              <td>Newton</td>
-              <td>Active</td>
-              <td><span class="badge bg-success">Valid</span></td>
-            </tr>
-
-            <tr>
-              <td>123456789012</td>
-              <td>Pedro Reyes</td>
-              <td>Male</td>
-              <td>Grade 7</td>
-              <td>Einstein</td>
-              <td>Active</td>
-              <td><span class="badge bg-danger">Duplicate LRN</span></td>
-            </tr>
-
-            <tr>
-              <td>-</td>
-              <td>Ana Lopez</td>
-              <td>Female</td>
-              <td>Grade 7</td>
-              <td>Newton</td>
-              <td>Active</td>
-              <td><span class="badge bg-warning text-dark">Missing LRN</span></td>
+              <td colspan="6" class="text-muted text-center">Click Preview File to validate the uploaded Excel file.</td>
             </tr>
           </tbody>
         </table>
@@ -228,6 +191,8 @@
   </main>
 </div>
 
-<script src="/templates/js/prototype.js"></script>
+<script src="/templates/js/sample-data.js"></script>
+<script src="/templates/js/common.js"></script>
+<script src="/templates/js/lis-upload.js"></script>
 </body>
 </html>

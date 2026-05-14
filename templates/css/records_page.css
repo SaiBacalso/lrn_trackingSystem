@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-bottom: 4px;
 }
 
@@ -17,6 +18,13 @@
   font-size: 11px;
 }
 
+.records-header .custom-btn {
+  min-width: 120px;
+  height: 38px;
+  padding-inline: 16px;
+  white-space: nowrap;
+}
+
 .form-label {
   color: #12376f;
   font-weight: 600;
@@ -30,10 +38,80 @@
   font-size: 12px;
 }
 
+.custom-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.custom-table th,
+.custom-table td {
+  vertical-align: middle;
+}
+
+.custom-table th:nth-child(1),
+.custom-table td:nth-child(1) {
+  width: 16%;
+}
+
+.custom-table th:nth-child(2),
+.custom-table td:nth-child(2) {
+  width: 28%;
+}
+
+.custom-table th:nth-child(3),
+.custom-table td:nth-child(3) {
+  width: 8%;
+}
+
+.custom-table th:nth-child(4),
+.custom-table td:nth-child(4),
+.custom-table th:nth-child(5),
+.custom-table td:nth-child(5) {
+  width: 14%;
+}
+
+.custom-table th:nth-child(6),
+.custom-table td:nth-child(6) {
+  width: 20%;
+}
+
+.records-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  color: #6c7a96;
+  font-size: 11px;
+}
+
+.records-pager > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.records-pager button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
 @media(max-width: 768px) {
   .records-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .records-header .custom-btn {
+    width: 100%;
   }
 }

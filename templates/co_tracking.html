@@ -23,13 +23,12 @@
     <div class="logo-section">
       <img src="/rsc/schoolLogo.png" alt="Logo">
       <div class="logo-text">
-        <h5>LRN System</h5>
-        <span>Student Tracking</span>
+        <h5>Student LRN</h5>
+        <span>Tracking System</span>
       </div>
     </div>
 
     <div class="nav-group">
-      <p>MAIN</p>
       <a href="/dashboard">
         <i class="bi bi-grid-1x2-fill"></i>
         Dashboard
@@ -37,7 +36,6 @@
     </div>
 
     <div class="nav-group">
-      <p>DATA INTEGRATION</p>
       <a href="/lis-upload">
         <i class="bi bi-upload"></i>
         LIS Upload
@@ -64,8 +62,7 @@
       </a>
     </div>
 
-    <div class="nav-group">
-      <p>SYSTEM</p>
+    <div class="nav-group logout-group">
       <a href="/login">
         <i class="bi bi-box-arrow-right"></i>
         Logout
@@ -80,7 +77,7 @@
     <div class="topbar">
       <div>
         <h3>Cohort Tracking</h3>
-        <span>Track student progression from Grade 7 to Grade 10 using LRN</span>
+        <span>Track a selected Grade 7 cohort across four school years using LRN</span>
       </div>
 
       <div class="topbar-right">
@@ -96,52 +93,43 @@
           <span>Select a starting batch to monitor its four-year junior high school progression.</span>
         </div>
 
-        <button class="btn custom-btn">Generate Tracking</button>
       </div>
 
       <div class="row g-3 mt-2">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <label class="form-label">Starting School Year</label>
-          <select class="form-select">
+          <select class="form-select" id="startingCohortSelect">
             <option selected>2022-2023</option>
             <option>2023-2024</option>
             <option>2024-2025</option>
           </select>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
           <label class="form-label">Current School Year</label>
-          <select class="form-select">
+          <select class="form-select" id="currentCohortSelect">
             <option selected>2025-2026</option>
             <option>2024-2025</option>
             <option>2023-2024</option>
           </select>
         </div>
 
-        <div class="col-md-3">
-          <label class="form-label">Grade Entry Level</label>
-          <select class="form-select">
-            <option selected>Grade 7</option>
-          </select>
-        </div>
-
-        <div class="col-md-3">
+        <div class="col-md-4">
           <label class="form-label">Status Filter</label>
-          <select class="form-select">
+          <select class="form-select" id="cohortStatusFilter">
             <option selected>All Status</option>
-            <option>Straight-Path</option>
-            <option>Transferred In</option>
+            <option>In Progress</option>
+            <option>Regular</option>
+            <option>Irregular</option>
             <option>Transferred Out</option>
-            <option>Repeater</option>
-            <option>Dropout</option>
-            <option>Completed</option>
+            <option>Dropped Out</option>
           </select>
         </div>
       </div>
     </section>
 
     <!-- SUMMARY CARDS -->
-    <section class="cards-section">
+    <section class="cards-section cohort-summary-cards">
 
       <div class="dashboard-card">
         <div>
@@ -152,21 +140,14 @@
 
       <div class="dashboard-card">
         <div>
-          <p>Straight-Path Students</p>
+          <p>Regular</p>
           <h2>280</h2>
         </div>
       </div>
 
       <div class="dashboard-card">
         <div>
-          <p>Completed Grade 10</p>
-          <h2>292</h2>
-        </div>
-      </div>
-
-      <div class="dashboard-card">
-        <div>
-          <p>At-Risk / Irregular</p>
+          <p>Irregular / Needs Review</p>
           <h2>28</h2>
         </div>
       </div>
@@ -178,38 +159,34 @@
 
       <div class="panel">
         <div class="panel-header">
-          <h5>Progression Path Summary</h5>
-          <span class="text-muted">Overview of students tracked across four grade levels.</span>
+          <h5>Cohort Path Guide</h5>
+          <span class="text-muted">Shows the expected school-year path for the selected Grade 7 cohort.</span>
         </div>
 
         <div class="path-summary">
           <div class="path-box">
-            <span>Grade 7</span>
-            <h4>320</h4>
+            <h4>Grade 7</h4>
             <p>2022-2023</p>
           </div>
 
           <div class="path-arrow">&rarr;</div>
 
           <div class="path-box">
-            <span>Grade 8</span>
-            <h4>310</h4>
+            <h4>Grade 8</h4>
             <p>2023-2024</p>
           </div>
 
           <div class="path-arrow">&rarr;</div>
 
           <div class="path-box">
-            <span>Grade 9</span>
-            <h4>302</h4>
+            <h4>Grade 9</h4>
             <p>2024-2025</p>
           </div>
 
           <div class="path-arrow">&rarr;</div>
 
           <div class="path-box">
-            <span>Grade 10</span>
-            <h4>292</h4>
+            <h4>Grade 10</h4>
             <p>2025-2026</p>
           </div>
         </div>
@@ -217,17 +194,17 @@
 
       <div class="panel">
         <div class="panel-header">
-          <h5>Cohort Status</h5>
+          <h5>Student Movement Summary</h5>
         </div>
 
         <div class="status-list">
           <div>
-            <span>Transfer-In</span>
+            <span>Transferred In</span>
             <strong>14</strong>
           </div>
 
           <div>
-            <span>Transfer-Out</span>
+            <span>Transferred Out</span>
             <strong>10</strong>
           </div>
 
@@ -237,7 +214,7 @@
           </div>
 
           <div>
-            <span>Dropouts</span>
+            <span>Dropped Out</span>
             <strong>5</strong>
           </div>
         </div>
@@ -276,10 +253,10 @@
               <td>123456789012</td>
               <td>Juan Dela Cruz</td>
               <td><span class="badge bg-success">Enrolled</span></td>
-              <td><span class="badge bg-success">Promoted</span></td>
-              <td><span class="badge bg-success">Promoted</span></td>
-              <td><span class="badge bg-primary">Completed</span></td>
-              <td><span class="badge bg-success">Straight-Path</span></td>
+              <td><span class="badge bg-success">Enrolled</span></td>
+              <td><span class="badge bg-success">Enrolled</span></td>
+              <td></td>
+              <td><span class="badge bg-success">Regular</span></td>
             </tr>
 
             <tr>
@@ -287,8 +264,8 @@
               <td>Maria Santos</td>
               <td><span class="badge bg-success">Enrolled</span></td>
               <td><span class="badge bg-warning text-dark">Repeater</span></td>
-              <td><span class="badge bg-success">Promoted</span></td>
-              <td><span class="badge bg-primary">Completed</span></td>
+              <td><span class="badge bg-success">Enrolled</span></td>
+              <td></td>
               <td><span class="badge bg-warning text-dark">Irregular</span></td>
             </tr>
 
@@ -306,10 +283,10 @@
               <td>123456789015</td>
               <td>Ana Lopez</td>
               <td><span class="badge bg-success">Enrolled</span></td>
-              <td><span class="badge bg-success">Promoted</span></td>
-              <td><span class="badge bg-danger">Dropped</span></td>
+              <td><span class="badge bg-success">Enrolled</span></td>
+              <td><span class="badge bg-danger">Dropped Out</span></td>
               <td><span class="badge bg-secondary">N/A</span></td>
-              <td><span class="badge bg-danger">Dropout</span></td>
+              <td><span class="badge bg-danger">Dropped Out</span></td>
             </tr>
           </tbody>
         </table>
@@ -321,6 +298,8 @@
 
 </div>
 
-<script src="/templates/js/prototype.js"></script>
+<script src="/templates/js/sample-data.js"></script>
+<script src="/templates/js/common.js"></script>
+<script src="/templates/js/cohort-tracking.js"></script>
 </body>
 </html>

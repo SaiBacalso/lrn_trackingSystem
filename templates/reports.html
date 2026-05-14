@@ -26,13 +26,12 @@
       <img src="/rsc/schoolLogo.png" alt="Logo">
 
       <div class="logo-text">
-        <h5>LRN System</h5>
-        <span>Student Tracking</span>
+        <h5>Student LRN</h5>
+        <span>Tracking System</span>
       </div>
     </div>
 
     <div class="nav-group">
-      <p>MAIN</p>
       <a href="/dashboard">
         <i class="bi bi-grid-1x2-fill"></i>
         Dashboard
@@ -40,7 +39,6 @@
     </div>
 
     <div class="nav-group">
-      <p>DATA INTEGRATION</p>
       <a href="/lis-upload">
         <i class="bi bi-upload"></i>
         LIS Upload
@@ -67,8 +65,7 @@
       </a>
     </div>
 
-    <div class="nav-group">
-      <p>SYSTEM</p>
+    <div class="nav-group logout-group">
       <a href="/login">
         <i class="bi bi-box-arrow-right"></i>
         Logout
@@ -85,7 +82,7 @@
 
       <div>
         <h3>Reports</h3>
-        <span>Generate a simple progression summary for review and printing.</span>
+        <span>View and export student progression records.</span>
       </div>
 
       <div class="topbar-right">
@@ -101,11 +98,10 @@
 
         <div>
           <h5>Report Setup</h5>
-          <span>Select the cohort and school year to summarize.</span>
+          <span>Select a report type and filters. The preview updates automatically.</span>
         </div>
 
         <div class="report-actions">
-          <button class="btn custom-btn">Generate</button>
           <button class="btn btn-outline-primary">Export Excel</button>
         </div>
 
@@ -115,7 +111,7 @@
 
         <div class="col-md-3">
           <label class="form-label">Report Type</label>
-          <select class="form-select">
+          <select class="form-select" id="reportTypeFilter">
             <option selected>Cohort Progression Summary</option>
             <option>Student Masterlist</option>
           </select>
@@ -123,7 +119,7 @@
 
         <div class="col-md-3">
           <label class="form-label">Starting Cohort</label>
-          <select class="form-select">
+          <select class="form-select" id="reportStartYearFilter">
             <option selected>2022-2023</option>
             <option>2023-2024</option>
             <option>2024-2025</option>
@@ -132,8 +128,9 @@
 
         <div class="col-md-3">
           <label class="form-label">School Year</label>
-          <select class="form-select">
-            <option selected>2025-2026</option>
+          <select class="form-select" id="reportSchoolYearFilter">
+            <option selected>All School Years</option>
+            <option>2025-2026</option>
             <option>2024-2025</option>
             <option>2023-2024</option>
           </select>
@@ -141,7 +138,7 @@
 
         <div class="col-md-3">
           <label class="form-label">Grade Level</label>
-          <select class="form-select">
+          <select class="form-select" id="reportGradeFilter">
             <option selected>All Grade Levels</option>
             <option>Grade 7</option>
             <option>Grade 8</option>
@@ -193,7 +190,7 @@
 
         <div>
           <h5>Report Preview</h5>
-          <span class="text-muted">Generated summary ready for administrative review.</span>
+          <span class="text-muted" id="reportPreviewSubtitle">Summary ready for administrative review.</span>
         </div>
 
         <span class="badge bg-primary">Preview Mode</span>
@@ -205,29 +202,29 @@
         <div class="report-title">
           <h4>Alubijid National Comprehensive High School</h4>
           <p>Integrated LRN-Based Student Progression Tracking System</p>
-          <h5>Cohort Progression Summary</h5>
-          <span>School Year 2025-2026 | Cohort 2022-2026</span>
+          <h5 id="reportTitle">Cohort Progression Summary</h5>
+          <span id="reportMeta">School Year 2025-2026 | Cohort 2022-2026</span>
         </div>
 
         <div class="summary-boxes">
 
           <div>
-            <span>Original Grade 7 Cohort</span>
+            <span id="summaryLabelOne">Original Grade 7 Cohort</span>
             <strong>320</strong>
           </div>
 
           <div>
-            <span>Reached Grade 10</span>
+            <span id="summaryLabelTwo">Regular</span>
             <strong>292</strong>
           </div>
 
           <div>
-            <span>Cohort Survival Rate</span>
+            <span id="summaryLabelThree">Progression Rate</span>
             <strong>92%</strong>
           </div>
 
           <div>
-            <span>Transfer-Out</span>
+            <span id="summaryLabelFour">Transfer-Out</span>
             <strong>10</strong>
           </div>
 
@@ -238,15 +235,13 @@
           <table class="table custom-table align-middle">
 
             <thead>
-              <tr>
-                <th>LRN</th>
-                <th>Student Name</th>
-                <th>Grade 7</th>
-                <th>Grade 8</th>
-                <th>Grade 9</th>
-                <th>Grade 10</th>
-                <th>Final Status</th>
-              </tr>
+            <tr>
+              <th>LRN</th>
+              <th>Student Name</th>
+              <th>Grade</th>
+              <th>School Year</th>
+              <th>Status</th>
+            </tr>
             </thead>
 
             <tbody>
@@ -254,10 +249,10 @@
                 <td>123456789012</td>
                 <td>Juan Dela Cruz</td>
                 <td>Enrolled</td>
-                <td>Promoted</td>
-                <td>Promoted</td>
+                <td>Enrolled</td>
+                <td>Enrolled</td>
                 <td>Completed</td>
-                <td><span class="badge bg-success">Straight-Path</span></td>
+                <td><span class="badge bg-success">Regular</span></td>
               </tr>
 
               <tr>
@@ -265,7 +260,7 @@
                 <td>Maria Santos</td>
                 <td>Enrolled</td>
                 <td>Repeater</td>
-                <td>Promoted</td>
+                <td>Enrolled</td>
                 <td>Completed</td>
                 <td><span class="badge bg-warning text-dark">Irregular</span></td>
               </tr>
@@ -293,6 +288,8 @@
 
 </div>
 
-<script src="/templates/js/prototype.js"></script>
+<script src="/templates/js/sample-data.js"></script>
+<script src="/templates/js/common.js"></script>
+<script src="/templates/js/reports.js"></script>
 </body>
 </html>
