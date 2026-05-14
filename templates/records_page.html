@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Records | LRN Tracking System</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="/templates/css/dashboard.css">
+  <link rel="stylesheet" href="/templates/css/records_page.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo-section">
+      <img src="/rsc/schoolLogo.png" alt="Logo">
+      <div class="logo-text">
+        <h5>LRN System</h5>
+        <span>Student Tracking</span>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <p>MAIN</p>
+      <a href="/dashboard">
+        <i class="bi bi-grid-1x2-fill"></i>
+        Dashboard
+      </a>
+    </div>
+
+    <div class="nav-group">
+      <p>DATA INTEGRATION</p>
+      <a href="/lis-upload">
+        <i class="bi bi-upload"></i>
+        LIS Upload
+      </a>
+    </div>
+
+    <div class="nav-group">
+      <p>STUDENT MANAGEMENT</p>
+      <a href="/students" class="active">
+        <i class="bi bi-people-fill"></i>
+        Students
+      </a>
+      <a href="/cohort-tracking">
+        <i class="bi bi-diagram-3-fill"></i>
+        Cohort Tracking
+      </a>
+    </div>
+
+    <div class="nav-group">
+      <p>OUTPUTS</p>
+      <a href="/reports">
+        <i class="bi bi-file-earmark-text-fill"></i>
+        Reports
+      </a>
+    </div>
+
+    <div class="nav-group">
+      <p>SYSTEM</p>
+      <a href="/login">
+        <i class="bi bi-box-arrow-right"></i>
+        Logout
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div>
+        <h3>Student Records</h3>
+        <span>Manage and view student information using the 12-digit LRN</span>
+      </div>
+
+      <div class="topbar-right">
+        <div class="profile-box">Admin</div>
+      </div>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <section class="cards-section">
+
+      <div class="dashboard-card">
+        <div>
+          <p>Total Students</p>
+          <h2>1,245</h2>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <div>
+          <p>Active Students</p>
+          <h2>1,209</h2>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <div>
+          <p>Completed</p>
+          <h2>322</h2>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <div>
+          <p>Archived Records</p>
+          <h2>24</h2>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FILTERS -->
+    <section class="panel mb-4">
+
+      <div class="records-header">
+        <div>
+          <h5>Student List</h5>
+          <span>Search, filter, add, edit, and view student records.</span>
+        </div>
+
+        <button class="btn custom-btn">+ Add Student</button>
+      </div>
+
+      <div class="row g-3 mt-2">
+
+        <div class="col-md-4">
+          <label class="form-label">Search Student</label>
+          <input type="text" class="form-control" placeholder="Search by LRN or name">
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label">Grade Level</label>
+          <select class="form-select">
+            <option selected>All Grades</option>
+            <option>Grade 7</option>
+            <option>Grade 8</option>
+            <option>Grade 9</option>
+            <option>Grade 10</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label">Section</label>
+          <select class="form-select">
+            <option selected>All Sections</option>
+            <option>Einstein</option>
+            <option>Newton</option>
+            <option>Darwin</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label">Status</label>
+          <select class="form-select">
+            <option selected>All Status</option>
+            <option>Active</option>
+            <option>Completed</option>
+            <option>Transferred In</option>
+            <option>Transferred Out</option>
+            <option>Repeater</option>
+            <option>Dropped</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label">School Year</label>
+          <select class="form-select">
+            <option selected>2025-2026</option>
+            <option>2024-2025</option>
+            <option>2023-2024</option>
+          </select>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TABLE -->
+    <section class="panel">
+
+      <div class="table-responsive">
+        <table class="table custom-table align-middle">
+          <thead>
+            <tr>
+              <th>LRN</th>
+              <th>Student Name</th>
+              <th>Sex</th>
+              <th>Grade</th>
+              <th>Section</th>
+              <th>School Year</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>123456789012</td>
+              <td>Juan Dela Cruz</td>
+              <td>Male</td>
+              <td>Grade 7</td>
+              <td>Einstein</td>
+              <td>2025-2026</td>
+              <td><span class="badge bg-success">Active</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary">View</button>
+                <button class="btn btn-sm btn-outline-warning">Edit</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>123456789013</td>
+              <td>Maria Santos</td>
+              <td>Female</td>
+              <td>Grade 8</td>
+              <td>Newton</td>
+              <td>2025-2026</td>
+              <td><span class="badge bg-info">Transferred In</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary">View</button>
+                <button class="btn btn-sm btn-outline-warning">Edit</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>123456789014</td>
+              <td>Pedro Reyes</td>
+              <td>Male</td>
+              <td>Grade 9</td>
+              <td>Darwin</td>
+              <td>2025-2026</td>
+              <td><span class="badge bg-warning text-dark">Repeater</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary">View</button>
+                <button class="btn btn-sm btn-outline-warning">Edit</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>123456789015</td>
+              <td>Ana Lopez</td>
+              <td>Female</td>
+              <td>Grade 10</td>
+              <td>Einstein</td>
+              <td>2025-2026</td>
+              <td><span class="badge bg-primary">Completed</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary">View</button>
+                <button class="btn btn-sm btn-outline-warning">Edit</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="/templates/js/prototype.js"></script>
+</body>
+</html>
